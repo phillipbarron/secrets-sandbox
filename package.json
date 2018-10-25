@@ -1,0 +1,16 @@
+{
+  "name": "aws-secrets-sandbox",
+  "version": "1.0.0",
+  "description": "auththenicate with aws using wormhole then set all e2e test values",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.342.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
