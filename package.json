@@ -1,16 +1,26 @@
 {
   "name": "aws-secrets-sandbox",
-  "version": "1.0.0",
-  "description": "auththenicate with aws using wormhole then set all e2e test values",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "auththenicate with aws using wormhole then set export all values for a named secret in sercrets manager",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "babel ./src -d ./lib",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Phill Barron",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.342.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.5.0"
   }
 }

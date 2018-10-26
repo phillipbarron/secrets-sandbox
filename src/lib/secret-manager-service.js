@@ -1,9 +1,11 @@
 const AWS = require('aws-sdk');
 
-const secretsManager = new AWS.SecretsManager();
+let options = process.env.AWS_REGION ? {} : {region: 'eu-west-1'};
 
-const setAllTheSecrets = async () => {
-    return await secretsManager.getSecretValue({SecretId: 'Optimo-E2E_Tests_Secrets'}, (error, secrets) =>{
+const secretsManager = new AWS.SecretsManager(options);
+
+const setAllTheSecrets = async (secretsId) => {
+    return await secretsManager.getSecretValue({SecretId: secretsId}, (error, secrets) =>{
         if(error){
             throw Error(error);
         } 

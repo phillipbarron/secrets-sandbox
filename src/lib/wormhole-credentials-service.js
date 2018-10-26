@@ -4,9 +4,9 @@ const fs = require('fs');
 
 const setCredentials = async() => {
     var options = {
-        url: `https://wormhole.api.bbci.co.uk/account/${CPS_AWS_DEV_ACCOUNT_NUMBER}/credentials`,
-        cert: fs.readFileSync('/etc/pki/tls/certs/client.crt'),
-        key: fs.readFileSync('/etc/pki/tls/private/client.key'),
+        url: `https://wormhole.api.bbci.co.uk/account/${process.env.AWS_ACCOUNT_NUMBER}/credentials`,
+        cert: fs.readFileSync(process.env.CERT_LOCATION || '/etc/pki/tls/certs/client.crt'),
+        key: fs.readFileSync(process.env.COSMOS_CERT_KEY ||  '/etc/pki/tls/private/client.key'),
         ca: fs.readFileSync(process.env.COSMOS_CA)
     };    
     await rp.get(options).then(response => {
